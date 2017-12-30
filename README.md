@@ -1,7 +1,7 @@
 ### Golang logging library
 --------------------------
 
-[![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](http://godoc.org/github.com/gamelife1314/logging)
+[![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/gamelife1314/logging)
 [![build](https://travis-ci.org/gamelife1314/logging.svg?branch=master)](https://travis-ci.org/gamelife1314/logging)
 
 Package logging implements a logging infrastructure. It supports different
@@ -64,6 +64,6 @@ func main() {
 ### Documentation
 -----------------
 
-1. see [http://godoc.org/github.com/gamelife1314/logging](http://godoc.org/gamelife1314/logging)
+1. see [http://godoc.org/github.com/gamelife1314/logging](https://godoc.org/github.com/gamelife1314/logging)
 
 2. or run command: `godoc github.com/gamelife1314/logging`
