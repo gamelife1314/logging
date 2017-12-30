@@ -1,6 +1,9 @@
 ### Golang logging library
 --------------------------
 
+[![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](http://godoc.org/github.com/gamelife1314/logging)
+[![build](https://travis-ci.org/gamelife1314/logging.svg?branch=master)](https://travis-ci.org/gamelife1314/logging)
+
 Package logging implements a logging infrastructure. It supports different
 MessageHandler like StreamHandler for console and FileHandler for file output;
 Every MessageHandler can have different MessageFormatter and MessageFilter.
