@@ -22,11 +22,12 @@ import (
 
 func main() {
 	logger := logging.GetDefaultLogger()
-	logger.DEBUG("hello world, %s", "logging")
-	logger.INFO("hello world, %s", "logging")
-	logger.WARNING("hello world, %s", "logging")
-	logger.ERROR("hello world, %s", "logging")
-	logger.CRITICAL("hello world, %s", "logging")
+	logger.Debug("hello world, %s", "logging")
+	logger.Info("hello world, %s", "logging")
+	logger.Notice("hello world, %s", "logging")
+	logger.Warning("hello world, %s", "logging")
+	logger.Error("hello world, %s", "logging")
+	logger.Critical("hello world, %s", "logging")
 
 	logFile, _ := os.OpenFile("log.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	logger2 := &logging.Logger{
@@ -47,7 +48,7 @@ func main() {
 			Destination: logFile,
 		},
 	}
-	logger2.DEBUG("hello world")
+	logger2.Debug("hello world")
 }
 
 ```

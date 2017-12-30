@@ -22,7 +22,7 @@ const (
 	ColorBlue                // blue
 	ColorMagenta             // magenta
 	_                        // cyan
-	_                        // white
+	ColorWhite               // white
 )
 
 const LevelColorSeqClear = "\033[0m"
@@ -31,6 +31,7 @@ const LevelColorSeqClear = "\033[0m"
 var LevelColorFlag = []string{
 	DEBUG:    levelColorSeq(ColorBlue, 0),
 	INFO:     levelColorSeq(ColorGreen, 0),
+	NOTICE:   levelColorSeq(ColorWhite, 0),
 	WARNING:  levelColorSeq(ColorYellow, 0),
 	ERROR:    levelColorSeq(ColorRed, 1),
 	CRITICAL: levelColorSeq(ColorMagenta, 1),
@@ -40,6 +41,7 @@ var LevelColorFlag = []string{
 var LevelString = map[MessageLevel]string{
 	DEBUG:    "DEBUG",
 	INFO:     "INFO",
+	NOTICE:   "NOTICE",
 	WARNING:  "WARNING",
 	ERROR:    "ERROR",
 	CRITICAL: "CRITICAL",
@@ -50,9 +52,10 @@ const (
 	NOTSET   = iota
 	DEBUG    = MessageLevel(10 * iota) // DEBUG = 10
 	INFO     = MessageLevel(10 * iota) // INFO = 20
-	WARNING  = MessageLevel(10 * iota) // WARNING = 30
-	ERROR    = MessageLevel(10 * iota) // ERROR = 40
-	CRITICAL = MessageLevel(10 * iota) // CRITICAL = 50
+	NOTICE   = MessageLevel(10 * iota) // INFO = 30
+	WARNING  = MessageLevel(10 * iota) // WARNING = 40
+	ERROR    = MessageLevel(10 * iota) // ERROR = 50
+	CRITICAL = MessageLevel(10 * iota) // CRITICAL = 60
 )
 
 func levelColorSeq(l MessageLevel, way int) string {
@@ -110,26 +113,31 @@ func (l *Logger) log(level MessageLevel, format string, a ...interface{}) {
 }
 
 // Logger.Debug, record DEBUG message.
-func (l *Logger) DEBUG(format string, a ...interface{}) {
+func (l *Logger) Debug(format string, a ...interface{}) {
 	l.log(DEBUG, format, a...)
 }
 
-// Logger.Debug, record INFO message.
-func (l *Logger) INFO(format string, a ...interface{}) {
+// Logger.Info, record INFO message.
+func (l *Logger) Info(format string, a ...interface{}) {
 	l.log(INFO, format, a...)
 }
 
-// Logger.Debug, record WARNING message.
-func (l *Logger) WARNING(format string, a ...interface{}) {
+// Logger.Notice, record INFO message.
+func (l *Logger) Notice(format string, a ...interface{}) {
+	l.log(NOTICE, format, a...)
+}
+
+// Logger.Warning, record WARNING message.
+func (l *Logger) Warning(format string, a ...interface{}) {
 	l.log(WARNING, format, a...)
 }
 
-// Logger.Debug, record ERROR message.
-func (l *Logger) ERROR(format string, a ...interface{}) {
+// Logger.Error, record ERROR message.
+func (l *Logger) Error(format string, a ...interface{}) {
 	l.log(ERROR, format, a...)
 }
 
-// Logger.Debug, record CRITICAL message.
-func (l *Logger) CRITICAL(format string, a ...interface{}) {
+// Logger.Critical, record CRITICAL message.
+func (l *Logger) Critical(format string, a ...interface{}) {
 	l.log(CRITICAL, format, a...)
 }
