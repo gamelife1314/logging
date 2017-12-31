@@ -30,6 +30,7 @@ func main() {
 	logger.Critical("hello world, %s", "logging")
 
 	logFile, _ := os.OpenFile("log.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	defer logFile.Close()
 	logger2 := &logging.Logger{
 		Level: logging.DEBUG,
 		StreamHandler: &logging.StreamMessageHandler{
